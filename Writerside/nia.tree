@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="nia"
+                 name="now in android"
+                 start-page="Overview.md">
+
+    <toc-element topic="Overview.md"/>
+    <toc-element topic="1-프로젝트-구조.md"/>
+    <toc-element topic="2-기본-아키텍처-설정.md"/>
+    <toc-element topic="3-UI-구현.md"/>
+    <toc-element topic="4-네비게이션-구현.md"/>
+    <toc-element topic="5-데이터-계층-구현.md"/>
+    <toc-element topic="6-비동기-처리.md"/>
+    <toc-element topic="7-네트워크-통신.md"/>
+    <toc-element topic="8-백그라운드-작업.md"/>
+    <toc-element topic="9-테스트-작성.md"/>
+    <toc-element topic="10-성능-최적화.md"/>
+    <toc-element topic="11-추가-기능-구현.md"/>
+</instance-profile>
