@@ -3,7 +3,7 @@ NowInAndroid에 사용된 멀티모듈 구조, 아키텍처 구조, JetPack 라�
 
 
 <seealso>
-    <category ref="wrs">   
+    <category ref="gr">   
         <a href="https://github.com/android/nowinandroid">Now In Android Repository</a>
         <a href="https://github.com/ckgod/CKGDroidLab">Sample 실험앱</a>
     </category>
