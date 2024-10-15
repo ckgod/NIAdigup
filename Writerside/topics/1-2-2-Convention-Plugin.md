@@ -14,6 +14,8 @@ Convention Plugin을 사용하면 대규모 멀티 모듈 프로젝트에서 빌
 프로젝트의 확장성과 유지보수성을 크게 향상시킬 수 있다.
 now in android 프로젝트에서는 이 개념을 적극적으로 활용하여 복잡한 빌드 설정을 체계적으로 관리하고 있다.
 
+[→ 프로젝트에 적용해보기](Convention-Plugin-사용해서-멀티-모듈-구조-잡기.md)
+
 <seealso>
     <category ref="convention_plugin_post">
         <a href="https://developer.squareup.com/blog/herding-elephants/">Herding Elephants</a>
