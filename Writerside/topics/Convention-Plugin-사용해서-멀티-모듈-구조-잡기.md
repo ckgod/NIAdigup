@@ -359,6 +359,73 @@ dependencies {
     </p>
 </note>
 
+### BuildFlavor 적용하기
+Flavor를 사용함으로써 하나의 코드 베이스로 여러 버전의 앱을 효율적으로 관리할 수 있다.
+예를 들어 동일한 앱의 여러 버전(예: 무료, 프리미엄)을 단일 프로젝트에서 관리할 수 있다.
+
+now in android에는 demo 버전과 prod 버전으로 나뉘어져 있는데 이를 적용해보자.
+
+#### Dimension과 Flavor 정의
+```Kotlin
+@Suppress("EnumEntryName")
+enum class FlavorDimension {
+    contentType
+}
+
+@Suppress("EnumEntryName")
+enum class CKGFlavor(val dimension: FlavorDimension, val applicationIdSuffix: String? = null) {
+    demo(FlavorDimension.contentType, applicationIdSuffix = ".demo"),
+    prod(FlavorDimension.contentType)
+}
+```
+Dimension은 contentType이라는 단일 차원만 사용중이다. 이후 추가적인 Dimension 확장을 위한 구조를 만들어 둔 것으로 생각된다.
+
+#### configureFlavors 함수 정의
+```Kotlin
+fun configureFlavors(
+    commonExtension: CommonExtension<*, *, *, *, *, *>,
+    flavorConfigurationBlock: ProductFlavor.(flavor: CKGFlavor) -> Unit = {}
+) {
+    commonExtension.apply {
+        flavorDimensions += FlavorDimension.contentType.name
+        productFlavors {
+            CKGFlavor.values().forEach {
+                create(it.name) {
+                    dimension = it.dimension.name
+                    flavorConfigurationBlock(this, it)
+                    if (this@apply is ApplicationExtension && this is ApplicationProductFlavor) {
+                        if (it.applicationIdSuffix != null) {
+                            applicationIdSuffix = it.applicationIdSuffix
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+CKGFlavor를 순회하며 각 flavor를 생성하는 함수를 작성한다.
+<code>flavorConfigurationBlock</code>은 각 flavor에 대한 추가 설정을 할 수 있는 함수 파라미터이다.
+
+#### AndroidApplicationFlavorsConventionPlugin 구현
+Flavor를 적용하는 컨벤션 플러그인을 구현 후 적용한다.
+
+```Kotlin
+class AndroidApplicationFlavorsConventionPlugin : Plugin<Project> {
+    override fun apply(target: Project) {
+        with(target) {
+            extensions.configure<ApplicationExtension> {
+                configureFlavors(this)
+            }
+        }
+    }
+}
+```
+
+![flavor_accept.png](flavor_accept.png)
+
+buildVariants에 접두사로 demo, prod가 생긴 것을 확인할 수 있다.
+
 [//]: # (https://dev-inventory.com/57)
 
 [//]: # (https://velog.io/@hs4609/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EB%A9%80%ED%8B%B0-%EB%AA%A8%EB%93%88-build-logic-%EA%B5%AC%ED%98%84)
