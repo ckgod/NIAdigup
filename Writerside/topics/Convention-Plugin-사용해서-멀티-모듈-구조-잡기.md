@@ -177,7 +177,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 }
 ```
 
-우선 컴벤션 플러그인 구현에서 version catalog를 편하게 사용하기 위한 Project 확장함수를 만든다.
+우선 컨벤션 플러그인 구현에서 version catalog를 편하게 사용하기 위한 Project 확장함수를 만든다.
 
 ```Kotlin
 // ProjectExtensions.kt
