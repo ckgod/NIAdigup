@@ -12,9 +12,15 @@
         <toc-element topic="프로젝트-구조-분석.md">
             <toc-element topic="1-2-1-Version-Catalog.md"/>
             <toc-element topic="1-2-2-Convention-Plugin.md"/>
+            <toc-element topic="1-2-3-Module.md">
+                <toc-element topic="app.md">
+                </toc-element>
+            </toc-element>
         </toc-element>
     </toc-element>
-    <toc-element topic="2-기본-아키텍처-설정.md"/>
+    <toc-element topic="2-기본-아키텍처-설정.md">
+        <toc-element topic="2-1-Hilt.md"/>
+    </toc-element>
     <toc-element topic="3-UI-구현.md"/>
     <toc-element topic="4-네비게이션-구현.md"/>
     <toc-element topic="5-데이터-계층-구현.md"/>
