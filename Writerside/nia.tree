@@ -4,9 +4,9 @@
 
 <instance-profile id="nia"
                  name="now in android"
-                 start-page="Overview.md">
+                 start-page="1-프로젝트-구조.md">
 
-    <toc-element topic="Overview.md"/>
+    <toc-element topic="link.md"/>
     <toc-element topic="1-프로젝트-구조.md">
         <toc-element topic="멀티-모듈-구조란.md"/>
         <toc-element topic="프로젝트-구조-분석.md">
