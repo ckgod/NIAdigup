@@ -99,3 +99,4 @@ Default names: [DefaultDispatcher-worker-16, DefaultDispatcher-worker-33,
     - 예를 들어, 파일이나 네트워크 응답을 기다리는 동안 해당 스레드는 아무 일도 하지 못하고 쉬게 된다. 이때, "CPU는 놀고 있는데, 스레드는 대기 중인" 상태가 많아지면 전체 처리량이 낮아진다. 이 문제를 해결하기 위해, `Dispatchers.IO` 는 CPU 코어 수보다 더 많은 스레드를 확보할 수 있도록 설계되었다.
   - 대기 시간이 긴 I/O 작업이 많아도, 필요한 만큼 추가 스레드가 투입되어 CPU를 사용할 수 있게 된다.
 
+참고: [CPU, 코어, 스레드, 스레드 풀(Thread Pool)](6-e-CPU-코어-스레드-스레드-풀.md)
